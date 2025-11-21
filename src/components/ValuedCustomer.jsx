@@ -1,4 +1,3 @@
-import { Box, Circle, Coffee, Hexagon, Palette, ShieldCheck, ShoppingBag, Triangle, Truck, Zap } from "lucide-react";
 import Geo from '../assets/prime/geo.png'
 import AlShifa from '../assets/prime/alshifa.jpeg'
 import Amaron from '../assets/prime/amarpn.jpeg'
