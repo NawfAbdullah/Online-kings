@@ -152,7 +152,7 @@ const Catalog = () => {
         <div className="mt-16 bg-slate-900 rounded-3xl p-8 md:p-12 text-center relative overflow-hidden">
            <div className="relative z-10">
               <h3 className="font-heading text-2xl md:text-3xl font-bold text-white mb-4">
-                  Need something custom?
+                  Need something customised?
               </h3>
               <p className="text-slate-300 mb-8 max-w-lg mx-auto">
                   We handle bulk orders and custom sizes that aren't listed here. Get in touch with our design team.

@@ -2,7 +2,7 @@ import {
   ArrowRight, Star, ShoppingBag, Menu, X, Play,} from 'lucide-react'
 import HeroImg from '../assets/hero.jpg'
 import handleQuoteRequest from '../utils/text';
-
+import Logo from '../assets/cropped.png'
 const Hero = () => {
   return (
     <main id="home" className="pt-32 pb-16 lg:pt-40 lg:pb-24 overflow-hidden">
@@ -11,6 +11,10 @@ const Hero = () => {
           
           {/* Left Column: Content */}
           <div className="flex flex-col items-start space-y-8 max-w-2xl">
+            <div className="flex items-center justify-start">
+              <img className='w-[150px]' src={Logo} alt="" />
+             
+            </div>
             <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-green-50 border border-green-100 shadow-sm">
               <span className="flex h-2 w-2 relative mr-3">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
@@ -22,7 +26,7 @@ const Hero = () => {
             </div>
 
             <h1 className="font-heading text-5xl md:text-6xl lg:text-[4.5rem] font-extrabold text-slate-900 leading-[1.1] tracking-tight">
-              Printing done <br />
+              Printing done <br/>
               <span className="relative whitespace-nowrap text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-teal-500">
                 the right way.
                 <svg className="absolute -bottom-2 left-0 w-full h-3 text-green-200 -z-10" viewBox="0 0 100 10" preserveAspectRatio="none">
@@ -32,7 +36,7 @@ const Hero = () => {
             </h1>
             
             <p className="text-lg md:text-xl text-slate-600 leading-relaxed max-w-lg">
-              The one-stop solution for all your advertisement needs. From high-quality banners to custom retail prints, we deliver excellence fast.
+              The one-stop solution for all your advertisement needs. From high-quality banners to custom retail prints, we deliver excellent fast.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">

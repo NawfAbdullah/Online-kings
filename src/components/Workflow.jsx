@@ -66,7 +66,7 @@ const Workflow = () => {
              </span>
           </h2>
           <p className="text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
-             Our 8-step quality control workflow ensures that every print that leaves our shop meets the Online Kings standard.
+             Our 8-step quality control workflow ensures that every print leaving our shop meets the Online Kings standard.
           </p>
         </div>
 

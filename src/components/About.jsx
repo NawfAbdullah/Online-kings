@@ -1,5 +1,6 @@
-import { Clock, Globe, Palette, ShieldCheck, Users, Zap } from "lucide-react";
+import { Award, CheckCircle, Clock, Globe, Palette, ShieldCheck, Users, Zap } from "lucide-react";
 import AbtUs from '../assets/printing.jpg'
+import AnimatedCounter from "./AnimatedCounter";
 const About = () => {
   return (
     <section id="about-us" className="py-20 lg:py-32 bg-white overflow-hidden">
@@ -7,47 +8,45 @@ const About = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           
           {/* Left: Visuals */}
-          <div className="relative order-2 lg:order-1">
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-100 aspect-square lg:aspect-[4/5] group">
-                 <div className="absolute inset-0 bg-slate-100">
-                    <div 
-                        className="w-full h-full bg-gradient-to-br from-slate-100 to-slate-200 flex items-center justify-center text-slate-300 group-hover:scale-105 transition-transform duration-700"
-                        style={{
-                            backgroundImage:`url(${AbtUs})`
-                        }}
-                        >
-                      
-                    </div>
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/20 to-transparent"></div>
-                 </div>
-                 {/* Floating Card 1: Experience */}
-                 <div className="absolute top-8 left-8 bg-white/90 backdrop-blur p-4 pr-6 rounded-2xl border border-white shadow-lg flex items-center gap-3">
-                     <div className="w-10 h-10 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold">
-                        7
-                     </div>
-                     <div>
-                        <p className="font-heading font-bold text-slate-900 text-sm">Years Experience</p>
-                        <p className="text-xs text-slate-500">Since 2018</p>
-                     </div>
-                 </div>
-                 {/* Floating Card 2: Speed */}
-                 <div className="absolute bottom-8 right-8 left-8 bg-white/95 backdrop-blur p-6 rounded-2xl border border-white shadow-xl">
-                    <div className="flex items-center gap-4 mb-2">
-                       <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center text-green-600">
-                          <Clock size={24} />
-                       </div>
-                       <div>
-                          <p className="font-heading font-bold text-slate-900 text-lg">Record Speed</p>
-                          <p className="text-sm text-slate-500">Average turnaround: <span className="text-green-600 font-semibold">2-3 Days</span></p>
-                       </div>
-                    </div>
-                    <div className="w-full bg-slate-100 rounded-full h-1.5 mt-2 overflow-hidden">
-                        <div className="bg-green-500 w-11/12 h-full rounded-full"></div>
-                    </div>
-                 </div>
+          <div className="order-2 lg:order-1">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  
+                  <div className="bg-slate-50 rounded-3xl p-8 border border-slate-100 hover:shadow-lg transition-all duration-300 group hover:-translate-y-1">
+                      <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-blue-600 shadow-sm mb-6 group-hover:scale-110 transition-transform">
+                          <Award size={32} />
+                      </div>
+                      <h3 className="font-heading font-bold text-5xl text-slate-900 mb-2">
+                          <AnimatedCounter end={7} suffix="+" />
+                      </h3>
+                      <p className="text-slate-500 font-medium">Years of Experience</p>
+                      <p className="text-xs text-slate-400 mt-2">Serving Chennai since 2018</p>
+                  </div>
+
+                  <div className="bg-slate-900 rounded-3xl p-8 border border-slate-800 hover:shadow-xl transition-all duration-300 group hover:-translate-y-1 text-white">
+                      <div className="w-14 h-14 bg-slate-800 rounded-2xl flex items-center justify-center text-green-400 shadow-sm mb-6 group-hover:scale-110 transition-transform">
+                          <CheckCircle size={32} />
+                      </div>
+                      <h3 className="font-heading font-bold text-5xl text-white mb-2">
+                          <AnimatedCounter end={5000} duration={2500} suffix="+" />
+                      </h3>
+                      <p className="text-slate-400 font-medium">Projects Completed</p>
+                      <p className="text-xs text-slate-500 mt-2">Trusted by 1000+ businesses</p>
+                  </div>
+
+                  <div className="sm:col-span-2 bg-gradient-to-r from-green-50 to-emerald-50 rounded-3xl p-8 border border-green-100 hover:shadow-lg transition-all duration-300 group hover:-translate-y-1 flex items-center justify-between relative overflow-hidden">
+                      <div className="relative z-10">
+                          <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-green-600 shadow-sm mb-4 group-hover:scale-110 transition-transform">
+                              <Zap size={32} fill="currentColor" />
+                          </div>
+                          <h3 className="font-heading font-bold text-5xl text-slate-900 mb-2">
+                              <AnimatedCounter end={24} suffix=" Hrs" />
+                          </h3>
+                          <p className="text-slate-600 font-medium">Record Turnaround Speed</p>
+                      </div>
+                      <Clock size={180} className="absolute -right-10 -bottom-10 text-green-200/50 rotate-12" />
+                  </div>
+
               </div>
-              <div className="absolute -top-12 -left-12 w-64 h-64 bg-green-50 rounded-full mix-blend-multiply filter blur-3xl opacity-60 animate-blob"></div>
-              <div className="absolute -bottom-12 -right-12 w-64 h-64 bg-blue-50 rounded-full mix-blend-multiply filter blur-3xl opacity-60 animate-blob animation-delay-2000"></div>
           </div>
 
           {/* Right: Text Content */}
@@ -65,7 +64,7 @@ const About = () => {
               <p className="text-lg text-slate-600 mb-10 leading-relaxed">
                   We are a Chennai-based printing and promotional company, offering a wide range of high-quality, affordable printing solutions. Since 2018, we've been trusted by customers for our unique promotional products, faster service and reliable results.
                   <br /><br />
-                  Whether you need budget-friendly branding, outdoor display solutions or regular office prints, we are your perfect printing partner in Chennai.
+                  Whether you need budget-friendly branding, outdoor display solutions or regular office prints, we are your perfect printing partner in Tamil Nadu.
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-10">

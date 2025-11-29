@@ -44,7 +44,7 @@ const ClientLogos = () => {
        </div>
        <div className="relative flex overflow-x-hidden group pause-on-hover">
           {/* First Marquee Track */}
-          <div className="w-full animate-marquee whitespace-nowrap flex items-center gap-16">
+          <div className="w-full animate-marquee whitespace-nowrap flex items-center gap-16 pt-3">
              {CLIENT_LOGOS.map((logo, i) => (
                 <div key={i} className="flex items-center gap-3 opacity-40 hover:opacity-100 transition-all duration-300 cursor-default group/item">
                    <div className={`w-20 h-20 rounded-xl bg-slate-50 flex items-center justify-center ${logo.color} group-hover/item:bg-slate-100 transition-colors`}>
@@ -63,11 +63,6 @@ const ClientLogos = () => {
                 </div>
              ))}
           </div>
-          {/* Second Track (for seamlessness if needed, though CSS usually handles one long track) 
-              Note: The above track duplicates the content internally which is usually enough for pure CSS marquee 
-              if the track is wide enough. To be safe for very wide screens, we often render two separate scrolling divs, 
-              but here I concatenated the array to make the track long.
-          */}
        </div>
     </section>
   )

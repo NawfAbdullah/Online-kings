@@ -61,6 +61,18 @@ const FontStyles = () => (
       box-shadow: 0 0 15px 2px rgba(34, 197, 94, 0.6);
     }
 
+    @media only screen and (max-width:600px){
+
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+
+    .animate-marquee {
+      animation: marquee 15s linear infinite;
+    }
+    }
+
   `}</style>
 );
 
