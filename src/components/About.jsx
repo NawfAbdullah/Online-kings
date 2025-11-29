@@ -53,7 +53,7 @@ const About = () => {
           <div className="order-1 lg:order-2">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-600 text-xs font-bold uppercase tracking-wider mb-6">
                   <span className="w-2 h-2 rounded-full bg-green-500"></span>
-                  Who We Are
+                  Who Are We?
               </div>
               
               <h2 className="font-heading text-4xl md:text-5xl font-bold text-slate-900 mb-6 leading-tight">

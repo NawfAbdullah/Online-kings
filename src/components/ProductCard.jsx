@@ -7,9 +7,9 @@ function ProductCard({product,activeCategoryData}) {
     const [selectedType,setSelectedSubType] = useState(null)
   return (
     <div 
-        className="group bg-white rounded-2xl border border-slate-100 hover:border-green-200 hover:shadow-xl hover:shadow-green-100/50 transition-all duration-300 flex flex-col justify-between h-full overflow-hidden"
+        className="group bg-white rounded-2xl border border-slate-100 hover:border-green-200 hover:shadow-xl hover:shadow-green-100/50 transition-all duration-300 flex flex-col justify-start lg:justify-between h-full overflow-hidden"
             >
-            <img className='w-full h-90 object-cover' src={Placeholder} alt="" />
+            <img className='w-full h-50 lg:h-80 object-cover' src={Placeholder} alt="" />
             <div className="p-6">
 
               <div>
@@ -36,7 +36,7 @@ function ProductCard({product,activeCategoryData}) {
               </div>
 
               {/* Action Footer */}
-              <div className="mt-6 pt-6 border-t border-slate-50 flex items-center justify-between" onClick={() =>{
+              <div className="mt-auto mb-2 pt-6 border-t border-slate-50 flex items-center justify-between" onClick={() =>{
                  if(!selectedType){
                      handleQuoteRequest(product.name)
                 }else{

@@ -142,7 +142,7 @@ const Catalog = () => {
         </div>
 
         {/* Products Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 min-h-[500px]">
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 min-h-[500px]">
           {activeCategoryData && activeCategoryData.products.map((product, idx) => (
             <ProductCard product={product} key={idx} activeCategoryData={activeCategoryData}/>
           ))}
