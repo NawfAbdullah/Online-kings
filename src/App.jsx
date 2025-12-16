@@ -2,6 +2,7 @@
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
+import Founder from './components/Founder';
 import Catalog from './components/Catalog';
 import Workflow from './components/Workflow';
 import Testimonials from './components/Testimonials';
@@ -84,6 +85,7 @@ const App = () => {
       <Hero />
       <ClientLogos />
       <About />
+      <Founder />
       <Workflow />
       <Catalog />
       <Testimonials />
