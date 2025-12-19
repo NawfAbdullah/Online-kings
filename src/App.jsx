@@ -38,7 +38,7 @@ const FontStyles = () => (
       100% { transform: translateX(-50%); }
     }
     .animate-marquee {
-      animation: marquee 30s linear infinite;
+      animation: marquee 20s linear infinite;
     }
     .pause-on-hover:hover .animate-marquee {
       animation-play-state: paused;
@@ -70,7 +70,7 @@ const FontStyles = () => (
     }
 
     .animate-marquee {
-      animation: marquee 15s linear infinite;
+      animation: marquee 10s linear infinite;
     }
     }
 

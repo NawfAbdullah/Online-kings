@@ -44,11 +44,11 @@ const Footer = () => {
           <div>
             <h3 className="text-white font-bold font-heading mb-6">Our Services</h3>
             <ul className="space-y-4 text-sm">
-              <li><a href="#" className="hover:text-green-400 transition-colors">Digital Printing</a></li>
-              <li><a href="#" className="hover:text-green-400 transition-colors">Offset Bulk Printing</a></li>
-              <li><a href="#" className="hover:text-green-400 transition-colors">Vinyl & Signage</a></li>
-              <li><a href="#" className="hover:text-green-400 transition-colors">Corporate Gifting</a></li>
-              <li><a href="#" className="hover:text-green-400 transition-colors">Custom Merchandise</a></li>
+              <li><a href="#catalog" className="hover:text-green-400 transition-colors">Digital Printing</a></li>
+              <li><a href="#catalog" className="hover:text-green-400 transition-colors">Offset Bulk Printing</a></li>
+              <li><a href="#catalog" className="hover:text-green-400 transition-colors">Vinyl & Signage</a></li>
+              <li><a href="#catalog" className="hover:text-green-400 transition-colors">Corporate Gifting</a></li>
+              <li><a href="#catalog" className="hover:text-green-400 transition-colors">Custom Merchandise</a></li>
             </ul>
           </div>
 
@@ -58,7 +58,7 @@ const Footer = () => {
             <ul className="space-y-4 text-sm">
               <li className="flex items-start gap-3">
                 <MapPin className="flex-shrink-0 text-green-500 mt-0.5" size={18} />
-                <span>77, Mohammed Hussain Street,<br/> Royapet, Chennai - 600014.</span>
+                <a href="https://www.google.com/maps?q=13.0555554,80.2697601&z=17&hl=en" target="_blank" rel="noopener noreferrer" className="hover:text-green-400 transition-colors">77, Mohammed Hussain Street,<br/> Royapet, Chennai - 600014.</a>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="flex-shrink-0 text-green-500" size={18} />

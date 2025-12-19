@@ -46,7 +46,7 @@ const ClientLogos = () => {
           {/* First Marquee Track */}
           <div className="w-full animate-marquee whitespace-nowrap flex items-center gap-16 pt-3">
              {CLIENT_LOGOS.map((logo, i) => (
-                <div key={i} className="flex items-center gap-3 opacity-40 hover:opacity-100 transition-all duration-300 cursor-default group/item">
+                <div key={i} className="flex items-center gap-3 opacity-100 hover:opacity-100 transition-all duration-300 cursor-default group/item">
                    <div className={`w-20 h-20 rounded-xl bg-slate-50 flex items-center justify-center ${logo.color} group-hover/item:bg-slate-100 transition-colors`}>
                         <img src={logo.icon} alt={logo.name} />
                    </div>

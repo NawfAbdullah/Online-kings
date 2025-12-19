@@ -64,10 +64,10 @@ const Testimonials = () => {
         </div>
 
         <div className="mt-16 text-center">
-            <button className="inline-flex items-center gap-2 text-slate-500 hover:text-slate-900 font-medium transition-colors border-b border-transparent hover:border-slate-900 pb-0.5" href="https://www.google.com/search?q=online+kings&rlz=1C1RXQR_enIN1169IN1169&oq=online&gs_lcrp=EgZjaHJvbWUqDggBEEUYJxg7GIAEGIoFMgYIABBFGDkyDggBEEUYJxg7GIAEGIoFMg0IAhAAGIMBGLEDGIAEMhAIAxAuGMcBGLEDGNEDGIAEMgYIBBBFGDwyBggFEEUYPTIGCAYQRRhBMgYIBxBFGD3SAQgyODU0ajBqN6gCALACAA&sourceid=chrome&ie=UTF-8#lrd=0x3a526774cc46485f:0xd3bd42a8e18c3eac,1,,,,">
+            <a href="" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-slate-500 hover:text-slate-900 font-medium transition-colors border-b border-transparent hover:border-slate-900 pb-0.5">
                 View all 30+ reviews on Google
                 <ArrowRight size={16} />
-            </button>
+            </a>
         </div>
 
       </div>
