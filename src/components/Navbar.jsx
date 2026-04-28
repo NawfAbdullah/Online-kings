@@ -1,6 +1,7 @@
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import Logo from '../assets/logo.png'
+import handleQuoteRequest from '../utils/text';
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -36,7 +37,7 @@ const Navbar = () => {
 
         {/* Desktop CTA */}
         <div className="hidden md:flex items-center gap-4">
-          <button className="bg-slate-900 hover:bg-slate-800 text-white text-sm font-medium px-5 py-2.5 rounded-full transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+          <button onClick={handleQuoteRequest} className="bg-slate-900 hover:bg-slate-800 text-white text-sm font-medium px-5 py-2.5 rounded-full transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
             Get a Quote
           </button>
         </div>
@@ -58,7 +59,7 @@ const Navbar = () => {
               {item}
             </a>
           ))}
-          <button className="w-full bg-green-500 text-white font-bold py-3 rounded-lg">
+          <button onClick={handleQuoteRequest} className="w-full bg-green-500 text-white font-bold py-3 rounded-lg">
             Get a Quote
           </button>
         </div>

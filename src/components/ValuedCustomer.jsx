@@ -42,7 +42,7 @@ const ClientLogos = () => {
        <div className="max-w-7xl mx-auto px-4 mb-8 text-center">
           <p className="text-xs font-bold text-slate-400 uppercase tracking-[0.2em]">Our Valued Customers</p>
        </div>
-       <div className="relative flex overflow-x-hidden group pause-on-hover">
+       <div className="relative flex overflow-x-hidden overflow-y-hidden group pause-on-hover">
           {/* First Marquee Track */}
           <div className="w-full animate-marquee whitespace-nowrap flex items-center gap-16 pt-3">
              {CLIENT_LOGOS.map((logo, i) => (

@@ -1,8 +1,9 @@
 import { ShoppingBag,  Printer, Layers, Image as ImageIcon, Flag, 
   Coffee, Briefcase, Lightbulb, ChevronRight 
 } from 'lucide-react';
-import { useState } from "react";
+import { useState, useRef } from "react";
 import ProductCard from './ProductCard';
+import handleQuoteRequest from '../utils/text';
 
 const CATALOG_DATA = [
   {
@@ -289,6 +290,7 @@ const CATALOG_DATA = [
 
 const Catalog = () => {
   const [activeCategory, setActiveCategory] = useState(CATALOG_DATA[0].id);
+  const categoryScrollRef = useRef(null);
   const activeCategoryData = CATALOG_DATA.find(cat => cat.id === activeCategory);
 
   return (
@@ -311,21 +313,31 @@ const Catalog = () => {
         </div>
 
         {/* Category Filter */}
-        <div className="flex overflow-x-auto pb-6 sm:pb-8 no-scrollbar gap-2 sm:gap-4 mb-8 snap-x">
-          {CATALOG_DATA.map((category) => (
-            <button
-              key={category.id}
-              onClick={() => setActiveCategory(category.id)}
-              className={`flex-shrink-0 snap-start flex items-center gap-1 sm:gap-2 px-3 sm:px-6 py-2 sm:py-3 rounded-full font-heading font-bold text-xs sm:text-sm whitespace-nowrap transition-all duration-300 ${
-                activeCategory === category.id
-                  ? 'bg-slate-900 text-white shadow-lg scale-105'
-                  : 'bg-white text-slate-500 border border-slate-200 hover:border-slate-400 hover:text-slate-900'
-              }`}
-            >
-              <category.icon size={14} className="hidden sm:block" />
-              <span className="text-xs sm:text-sm">{category.label}</span>
-            </button>
-          ))}
+        <div className="relative flex items-center gap-4 mb-8">
+          <div className="flex overflow-x-auto pb-6 sm:pb-8 no-scrollbar gap-2 sm:gap-4 snap-x flex-1" ref={categoryScrollRef}>
+            {CATALOG_DATA.map((category) => (
+              <button
+                key={category.id}
+                onClick={() => setActiveCategory(category.id)}
+                className={`flex-shrink-0 snap-start flex items-center gap-1 sm:gap-2 px-3 sm:px-6 py-2 sm:py-3 rounded-full font-heading font-bold text-xs sm:text-sm whitespace-nowrap transition-all duration-300 ${
+                  activeCategory === category.id
+                    ? 'bg-slate-900 text-white shadow-lg scale-105'
+                    : 'bg-white text-slate-500 border border-slate-200 hover:border-slate-400 hover:text-slate-900'
+                }`}
+              >
+                <category.icon size={14} className="hidden sm:block" />
+                <span className="text-xs sm:text-sm">{category.label}</span>
+              </button>
+            ))}
+          </div>
+          <button
+            onClick={() => {
+              categoryScrollRef.current?.scrollBy({ left: 300, behavior: 'smooth' });
+            }}
+            className="flex-shrink-0 bg-white hover:bg-slate-100 rounded-full p-2 transition-colors mb-6 sm:mb-8"
+          >
+            <ChevronRight size={20} className="text-slate-900" />
+          </button>
         </div>
 
         {/* Products Grid */}
@@ -344,7 +356,7 @@ const Catalog = () => {
               <p className="text-sm sm:text-base text-slate-300 mb-6 sm:mb-8 max-w-lg mx-auto px-2">
                   We handle bulk orders and custom sizes that aren't listed here. Get in touch with our design team.
               </p>
-              <button className="bg-green-500 hover:bg-green-600 text-white font-bold py-2.5 sm:py-3 px-6 sm:px-8 text-sm sm:text-base rounded-full transition-all">
+              <button onClick={handleQuoteRequest} className="bg-green-500 hover:bg-green-600 text-white font-bold py-2.5 sm:py-3 px-6 sm:px-8 text-sm sm:text-base rounded-full transition-all">
                   Request Custom Quote
               </button>
            </div>

@@ -119,15 +119,15 @@ const Hero = () => {
                   <span className="text-[10px] text-slate-400 font-mono">2h ago</span>
                 </div>
                 <p className="text-slate-800 text-sm font-medium leading-relaxed mb-4">
-                  "The print quality is insane. My gym branding looks completely different now."
+                  "Fastest , easiest and affordable place for all your printing and advertising requirements. Highly recommended.Thank you Kursheed."
                 </p>
                 <div className="flex items-center gap-3">
                   <div className="w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center text-white text-xs font-bold">
-                      M
+                      I
                   </div>
                   <div>
-                      <p className="text-xs font-bold text-slate-900 font-heading">Mani</p>
-                      <p className="text-[10px] text-slate-500">Owner, TR Cross Fit</p>
+                      <p className="text-xs font-bold text-slate-900 font-heading">Dr.Irfaan</p>
+                      <p className="text-[10px] text-slate-500">Millers Dental, Egmore</p>
                   </div>
                 </div>
             </div>
