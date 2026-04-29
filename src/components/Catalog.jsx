@@ -351,10 +351,10 @@ const Catalog = () => {
         <div className="mt-12 sm:mt-16 bg-slate-900 rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 text-center relative overflow-hidden">
            <div className="relative z-10">
               <h3 className="font-heading text-xl sm:text-2xl md:text-3xl font-bold text-white mb-3 sm:mb-4">
-                  Need something customised?
+                  Need something tailored?
               </h3>
               <p className="text-sm sm:text-base text-slate-300 mb-6 sm:mb-8 max-w-lg mx-auto px-2">
-                  We handle bulk orders and custom sizes that aren't listed here. Get in touch with our design team.
+                  We handle custom promotional products and sizes that aren't listed here. Get in touch with our design team.
               </p>
               <button onClick={handleQuoteRequest} className="bg-green-500 hover:bg-green-600 text-white font-bold py-2.5 sm:py-3 px-6 sm:px-8 text-sm sm:text-base rounded-full transition-all">
                   Request Custom Quote

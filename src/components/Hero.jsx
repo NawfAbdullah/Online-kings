@@ -1,8 +1,11 @@
 import { 
   ArrowRight, Star, ShoppingBag, Menu, X, Play,} from 'lucide-react'
-import HeroImg from '../assets/hero.jpg'
+import HeroImg from '../assets/products-hero.jpg'
 import handleQuoteRequest from '../utils/text';
 import Logo from '../assets/cropped.png'
+import Team1 from '../assets/avatar/1.jpeg'
+import Team2 from '../assets/avatar/2.jpeg'
+import Team3 from '../assets/avatar/3.jpeg'
 const Hero = () => {
   return (
     <main id="home" className="pt-32 pb-16 lg:pt-40 lg:pb-24 overflow-hidden">
@@ -26,9 +29,9 @@ const Hero = () => {
             </div>
 
             <h1 className="font-heading text-5xl md:text-6xl lg:text-[4.5rem] font-extrabold text-slate-900 leading-[1.1] tracking-tight">
-              Printing done <br/>
+              Printing that makes <br/>
               <span className="relative whitespace-nowrap text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-teal-500">
-                the right way.
+                Brands cannot ignore.
                 <svg className="absolute -bottom-2 left-0 w-full h-3 text-green-200 -z-10" viewBox="0 0 100 10" preserveAspectRatio="none">
                   <path d="M0 5 Q 50 10 100 5" stroke="currentColor" strokeWidth="8" fill="none" />
                 </svg>
@@ -53,9 +56,9 @@ const Hero = () => {
 
             <div className="pt-4 flex items-center gap-6 text-sm text-slate-500 font-medium">
               <div className="flex -space-x-3">
-                 {[...Array(4)].map((_, i) => (
+                 {[Team1, Team2, Team3].map((teamImg, i) => (
                    <div key={i} className={`w-10 h-10 rounded-full border-[3px] border-white bg-slate-200 flex items-center justify-center text-xs font-bold text-slate-400 overflow-hidden`}>
-                      <img src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${i+5}`} alt="User" />
+                      <img src={teamImg} alt="Team member" className="w-full h-full object-cover" />
                    </div>
                  ))}
                  <div className="w-10 h-10 rounded-full border-[3px] border-white bg-slate-100 flex items-center justify-center text-xs font-bold text-slate-600">

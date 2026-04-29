@@ -6,6 +6,7 @@ import Founder from './components/Founder';
 import Catalog from './components/Catalog';
 import Workflow from './components/Workflow';
 import Testimonials from './components/Testimonials';
+import FAQ from './components/FAQ';
 import Footer from './components/Footer';
 import ClientLogos from './components/ValuedCustomer';
 
@@ -89,6 +90,7 @@ const App = () => {
       <Workflow />
       <Catalog />
       <Testimonials />
+      <FAQ />
       <Footer />
     </div>
   );
