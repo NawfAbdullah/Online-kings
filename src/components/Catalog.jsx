@@ -5,6 +5,50 @@ import { useState, useRef } from "react";
 import ProductCard from './ProductCard';
 import handleQuoteRequest from '../utils/text';
 
+// Import local product images
+import visitingCardImg from '../assets/products/visitingCard.jpg';
+import pamphletImg from '../assets/products/pamplet.jpeg';
+import brochureImg from '../assets/products/brochure.jpeg';
+import sunpackImg from '../assets/products/sunpack.jpeg';
+import promoCanopyImg from '../assets/products/promotionalcanopy.jpeg';
+import rollupStandeeImg from '../assets/products/rollupstandee.jpeg';
+import promoTableImg from '../assets/products/promotionaltable.jpeg';
+import umbrellaImg from '../assets/products/umbrella.jpeg';
+import promoFlagImg from '../assets/products/promotionalflag.jpeg';
+import roundBadgeImg from '../assets/products/roundbatch.jpeg';
+import letterheadimg from "../assets/letterhead.png"
+import envelopecover from "../assets/envelope_cover.png"
+import billbook from "../assets/billbook.png"
+import stickers from "../assets/Stickers.jpg"
+import certificate from "../assets/certificate.png"
+import voucherbook from "../assets/voucher book.jpg"
+import danglers from "../assets/DANGLERS.....jpg"
+import coupons from "../assets/coupons.jpg"
+import wallposters from "../assets/wall posters.jpg"
+import magazines from "../assets/MAGAZINES.jpg"
+import calendars from "../assets/wallcalendar.jpg"
+import flex from "../assets/FLEX.jpg"
+import vinylstickers from "../assets/vinylstickers.jpg"
+import foam_board from "../assets/foam_board.jpg"
+import gazebo from "../assets/GAZEBO.jpg"
+import umbrellatable from "../assets/PROMOTIONAL TABLE WITH UMBERLLA.jpg"
+import adjustable_backdrop from "../assets/adjustable_backdrop.jpg"
+import tshirt from "../assets/TSHIRT.jpg"
+import cap from "../assets/CAP.jpg"
+import mugs from "../assets/MUGS.jpg"
+import waterbottle from "../assets/WATERBOTTLE.jpg"
+import idcards from "../assets/ID CARDS.jpg"
+import lanyards from "../assets/LANYARDS.jpg"
+import diaries from "../assets/DIARIES.jpg" 
+import tabletop_calendars from "../assets/tabletop_calendar.jpg"      
+import rubberstamps from "../assets/RUBBER STAMP.jpg"
+import keychain from "../assets/keychain.jpg"
+import frames from "../assets/frames.jpg"
+import arcylic_nameboards from "../assets/arcylic_nameboard.jpg"
+import acp from "../assets/products/acp.jpg"
+import ledboards from "../assets/LED BOARDS.jpg"
+import backlight_board from "../assets/backlight_board.jpg"
+
 const CATALOG_DATA = [
   {
     id: 'digital',
@@ -14,58 +58,70 @@ const CATALOG_DATA = [
       { 
         name: 'Visiting Cards', 
         description: '300 GSM art board visiting cards desirable for your business connections',
-        variants: ['Classic', 'Glossy', 'Matte', 'Textured'] 
+        variants: ['Classic', 'Glossy', 'Matte', 'Textured'],
+        image: visitingCardImg
       },
       { 
         name: 'Pamphlets', 
         description: 'Art paper, glossy finish, double and single side prints.',
         variants: ['A4', 'A5', 'DL Size', '80 GSM', '100 GSM', '120 GSM', '130 GSM'],
-        customizable: true
+        customizable: true,
+        image: pamphletImg
       },
       { 
         name: 'Brochures', 
         description: 'Suitable to present your catalog to your clients',
         variants: ['Bi-Fold', 'Tri-Fold', 'Z-Fold', '80 GSM', '100 GSM', '120 GSM', '130 GSM'],
-        customizable: true
+        customizable: true,
+        image: brochureImg
       },
       { 
         name: 'Letterheads', 
         description: 'Letterheads with your brand printed are the best way to project your brand professionally.',
-        customizable: true
+        customizable: true,
+        image: letterheadimg
       },
       { 
         name: 'Envelope Covers', 
         description: 'Advertise your brand in and out with customizable envelope covers.',
-        customizable: true
+        customizable: true,
+        image: envelopecover
       },
       { 
         name: 'Books', 
-        description: 'Print your product catalogs, user manuals, and company portfolios for your offices.'
+        description: 'Print your product catalogs, user manuals, and company portfolios for your offices.',
+        image: 'https://images.unsplash.com/photo-1507842217343-583f20270319?w=500&h=500&fit=crop'
       },
       { 
         name: 'Bill Books', 
-        description: 'Give as purchase receipts for your clients.'
+        description: 'Give as purchase receipts for your clients.',
+        image: billbook
       },
       { 
         name: 'Stickers', 
-        description: 'Label your brand on your products with attractive, peel-off stickers.'
+        description: 'Label your brand on your products with attractive, peel-off stickers.',
+        image: stickers
       },
       { 
         name: 'Certificates', 
         description: 'Laminated certificates as a recognition for awardees and event attendees.',
-        variants: ['300 GSM art board']
+        variants: ['300 GSM art board'],
+        image: certificate
       },
       { 
         name: 'Voucher Books', 
-        description: 'For keeping track of your office accounts.'
+        description: 'For keeping track of your office accounts.',
+        image: voucherbook
       },
       { 
         name: 'Danglers', 
-        description: '300 GSM art board danglers used to hang out in shops, outlet stores and showrooms.'
+        description: '300 GSM art board danglers used to hang out in shops, outlet stores and showrooms.',
+        image: danglers
       },
       { 
         name: 'Coupons', 
-        description: 'Short, easily readable handy cards for introducing sale and discounts.'
+        description: 'Short, easily readable handy cards for introducing sale and discounts.',
+        image: coupons
       }
     ]
   },
@@ -76,31 +132,37 @@ const CATALOG_DATA = [
     products: [
       { 
         name: 'Paper Inserts', 
-        description: 'Short ad handouts for newspaper inserts, as thanks coupons for customers, for festive offer announcements etc.'
+        description: 'Short ad handouts for newspaper inserts, as thanks coupons for customers, for festive offer announcements etc.',
+        image: 'https://images.unsplash.com/photo-1633356122544-f134324ef6cb?w=500&h=500&fit=crop'
       },
       { 
         name: 'Pamphlets', 
         description: 'Designed to educate your customers about your products and services. Art paper, glossy finish, double and single side prints.',
         variants: ['80 GSM', '100 GSM', '120 GSM', '130 GSM'],
-        customizable: true
+        customizable: true,
+        image: pamphletImg
       },
       { 
         name: 'Brochures', 
         description: 'A quick handout to your clients that speaks on your product catalogue',
         variants: ['80 GSM', '100 GSM', '120 GSM', '130 GSM'],
-        customizable: true
+        customizable: true,
+        image: brochureImg
       },
       { 
         name: 'Wall Posters', 
-        description: 'Brand recall, high visibility in outdoors for your products and services especially on offers, festive discounts or any product launches.'
+        description: 'Brand recall, high visibility in outdoors for your products and services especially on offers, festive discounts or any product launches.',
+        image: wallposters
       },
       { 
         name: 'Magazines', 
-        description: 'Premium quality paper with a glossy finish that brings your magazine an extraordinary look and shows your photographs sharp.'
+        description: 'Premium quality paper with a glossy finish that brings your magazine an extraordinary look and shows your photographs sharp.',
+        image: magazines
       },
       { 
         name: 'Calendars', 
-        description: 'Thick and sturdy papers with glossy finish, and writable surface for planning your years. Best for client gifts.'
+        description: 'Thick and sturdy papers with glossy finish, and writable surface for planning your years. Best for client gifts.',
+        image: calendars
       }
     ]
   },
@@ -111,19 +173,23 @@ const CATALOG_DATA = [
     products: [
       { 
         name: 'Flex', 
-        description: 'High-quality flex prints with vibrant colors and sharp clarity - perfect for banners, hoardings and outdoor ads.'
+        description: 'High-quality flex prints with vibrant colors and sharp clarity - perfect for banners, hoardings and outdoor ads.',
+        image: flex
       },
       { 
         name: 'Vinyl Stickers', 
-        description: 'Stickers in large sizes and bulk quantity.'
+        description: 'Stickers in large sizes and bulk quantity.',
+        image: vinylstickers
       },
       { 
         name: 'Foam Boards', 
-        description: 'Lightweight, steady foam boards that give you a high-quality finish - great for events, exhibitions and outdoor presentations.'
+        description: 'Lightweight, steady foam boards that give you a high-quality finish - great for events, exhibitions and outdoor presentations.',
+        image: foam_board
       },
       { 
         name: 'Sunpack Boards', 
-        description: 'Budget-friendly ad boards that are waterproof, UV resistant for bold, long-lasting displays.'
+        description: 'Budget-friendly ad boards that are waterproof, UV resistant for bold, long-lasting displays.',
+        image: sunpackImg
       }
     ]
   },
@@ -137,59 +203,69 @@ const CATALOG_DATA = [
         description: 'Sturdy, long-lasting, portable and easy-to-use product best suitable for outdoor promotional activities.',
         variants: ['4x4x7 ft.', '6x6x7 ft.'],
         material: 'Star flex',
-        customizable: true
+        customizable: true,
+        image: promoCanopyImg
       },
       { 
         name: 'Promotional Gazebo', 
         description: 'Tents well suited for outdoor events, banquets, highway motels, roadside diners etc. Strong enough to withstand everyday winds and moderate rains.',
         variants: ['6.5x6.5 ft.', '10x10 ft.', '10x15 ft.', '10x20 ft.'],
         colors: ['Red', 'Blue', 'Green', 'Orange', 'Yellow', 'Black', 'White'],
-        customizable: true
+        customizable: true,
+        image: gazebo
       },
       { 
         name: 'Roll-up Standees', 
         description: 'Sleek, attractive in look, unique in style promotional product which is perfect for both your indoor and outdoor displays. Portable, foldable, and compact in design.',
         variants: ['5x2 ft.', '6x2.5 ft.', '6x3 ft.'],
         material: 'Satin media, Star flex, Normal flex',
-        customizable: true
+        customizable: true,
+        image: rollupStandeeImg
       },
       { 
         name: 'Promotional Table', 
         description: 'Handy, portable display desk to showcase your products effortlessly. Hassle-free installation and dismantle. Includes two racks at the back, a desk on top and a brand board over the head.',
         material: 'PVC',
-        customizable: true
+        customizable: true,
+        image: promoTableImg
       },
       { 
         name: 'Promotional Table with Umbrella', 
         description: 'A custom-made design to satisfy our clients\' needs. This combined product adds shelter while you advertise your brand. We truly care for you while you advertise.',
-        customizable: true
+        customizable: true,
+        image: umbrellatable
       },
       { 
         name: 'Promotional Umbrella', 
         description: 'Spacious shelter for roadside promotional stalls, easy-to-fix, portable and long lasting.',
         variants: ['Diameter: 6 ft.', 'Height: 7 ft. (adjustable)'],
         colors: ['Red', 'Blue', 'Green', 'Orange', 'Yellow', 'White'],
-        customizable: true
+        customizable: true,
+        image: umbrellaImg
       },
       { 
         name: 'Promotional Flag', 
         description: 'A promotional product that gives you high visibility making your brand stand out in the crowd.',
         variants: ['6x2 ft.', '8x2 ft.', '10x2 ft.'],
-        customizable: true
+        customizable: true,
+        image: promoFlagImg
       },
       { 
         name: 'Adjustable Backdrop', 
         description: 'A good, movable promotional product that serves as a brand wall in business events, award functions, indoor offices, even in public corridors and malls.',
         variants: ['Standard size: 8x8 ft.'],
-        customizable: true
+        customizable: true,
+        image: adjustable_backdrop
       },
       { 
         name: 'Wooden Easel Stand', 
-        description: 'Desirable portrait stands that makes your brand look elegant. Perfect for business events, outlet stores, stalls, promotions in malls, weddings etc.'
+        description: 'Desirable portrait stands that makes your brand look elegant. Perfect for business events, outlet stores, stalls, promotions in malls, weddings etc.',
+        image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=500&h=500&fit=crop'
       },
       { 
         name: 'Lollipop Boards', 
-        description: 'Want your brand to stand out in style? Try out our lollipop boards. Apt for store entrances, food trucks, mall outlets and street food diners.'
+        description: 'Want your brand to stand out in style? Try out our lollipop boards. Apt for store entrances, food trucks, mall outlets and street food diners.',
+        image: 'https://images.unsplash.com/photo-1604480598129-2917b1c43eb2?w=500&h=500&fit=crop'
       }
     ]
   },
@@ -200,19 +276,23 @@ const CATALOG_DATA = [
     products: [
       { 
         name: 'T-Shirts', 
-        description: 'Custom printed T-shirts with fade-resistant prints and premium cotton cloth - perfect for daily wear.'
+        description: 'Custom printed T-shirts with fade-resistant prints and premium cotton cloth - perfect for daily wear.',
+        image: tshirt
       },
       { 
         name: 'Caps', 
-        description: 'Quality printed caps ideal for promotions, corporate branding and team wear.'
+        description: 'Quality printed caps ideal for promotions, corporate branding and team wear.',
+        image: cap
       },
       { 
         name: 'Mugs', 
-        description: 'Ceramic custom printed mugs with bright printing - perfect for gifts and branding.'
+        description: 'Ceramic custom printed mugs with bright printing - perfect for gifts and branding.',
+        image: mugs
       },
       { 
         name: 'Water Bottles', 
-        description: 'Durable water bottles with custom prints desirable for office needs, gifts and promotions.'
+        description: 'Durable water bottles with custom prints desirable for office needs, gifts and promotions.',
+        image: waterbottle
       }
     ]
   },
@@ -223,35 +303,43 @@ const CATALOG_DATA = [
     products: [
       { 
         name: 'Round Badges', 
-        description: 'Represent your brand wherever you go. Pin attached badges, magnetic metal badges and acrylic badges.'
+        description: 'Represent your brand wherever you go. Pin attached badges, magnetic metal badges and acrylic badges.',
+        image: roundBadgeImg
       },
       { 
         name: 'ID Cards', 
-        description: 'Non tearable, clear print ID cards for your colleagues, teammates and staff.'
+        description: 'Non tearable, clear print ID cards for your colleagues, teammates and staff.',
+        image: idcards
       },
       { 
         name: 'Lanyards', 
-        description: 'Durable ID ropes with multi-color prints and non-itchy material for daily wear.'
+        description: 'Durable ID ropes with multi-color prints and non-itchy material for daily wear.',
+        image: lanyards
       },
       { 
         name: 'Diaries', 
-        description: 'As owners you always need a diary to keep yourself reminded and organized. You can gift this to your customers as well.'
+        description: 'As owners you always need a diary to keep yourself reminded and organized. You can gift this to your customers as well.',
+        image: diaries
       },
       { 
         name: 'Table-top Calendars', 
-        description: 'Scheduling made easy with table-top calendars that are compact in size and flexible in use.'
+        description: 'Scheduling made easy with table-top calendars that are compact in size and flexible in use.',
+        image: tabletop_calendars
       },
       { 
         name: 'Rubber Stamps', 
-        description: 'You are not authenticated without your seal. Get a stamp customized on your brand immediately.'
+        description: 'You are not authenticated without your seal. Get a stamp customized on your brand immediately.',
+        image: rubberstamps
       },
       { 
         name: 'Keychains', 
-        description: 'Small in size, big on impact-gift that keeps your clients view your brand daily.'
+        description: 'Small in size, big on impact-gift that keeps your clients view your brand daily.',
+        image: keychain
       },
       { 
         name: 'Frames', 
-        description: 'Quality frames for your certificates to be displayed on your office walls.'
+        description: 'Quality frames for your certificates to be displayed on your office walls.',
+        image: frames
       }
     ]
   },
@@ -262,27 +350,33 @@ const CATALOG_DATA = [
     products: [
       { 
         name: 'Acrylic Name Boards', 
-        description: 'Elegant acrylic name boards with a premium glass-like finish - perfect for office interiors and exteriors.'
+        description: 'Elegant acrylic name boards with a premium glass-like finish - perfect for office interiors and exteriors.',
+        image: arcylic_nameboards
       },
       { 
         name: 'ACP Letters', 
-        description: 'High-quality ACP letters with clean edges and vibrant visibility for impactful branding.'
+        description: 'High-quality ACP letters with clean edges and vibrant visibility for impactful branding.',
+        image: acp
       },
       { 
         name: 'LED Boards', 
-        description: 'Durable, weatherproof LED boards with vibrant lights for powerful storefront advertising.'
+        description: 'Durable, weatherproof LED boards with vibrant lights for powerful storefront advertising.',
+        image: ledboards
       },
       { 
         name: 'Backlight Boards', 
-        description: 'High-quality backlit boards with even lighting - perfect for premium displays.'
+        description: 'High-quality backlit boards with even lighting - perfect for premium displays.',
+        image: backlight_board
       },
       { 
         name: 'Front Light Boards', 
-        description: 'Durable front lit boards with sharp prints and strong illumination for day-night visibility.'
+        description: 'Durable front lit boards with sharp prints and strong illumination for day-night visibility.',
+        image: 'https://images.unsplash.com/photo-1635630298304-f6fab60cf95e?w=500&h=500&fit=crop'
       },
       { 
         name: 'Iron Fabricated Standees', 
-        description: 'Fixed, weatherproof and sturdy standee made of iron and is apt for outdoor displays.'
+        description: 'Fixed, weatherproof and sturdy standee made of iron and is apt for outdoor displays.',
+        image: 'https://images.unsplash.com/photo-1511814314285-93b26a2c8676?w=500&h=500&fit=crop'
       }
     ]
   }

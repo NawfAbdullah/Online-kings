@@ -1,6 +1,6 @@
 import { 
   ArrowRight, Star, ShoppingBag, Menu, X, Play,} from 'lucide-react'
-import HeroImg from '../assets/products-hero.jpg'
+import HeroImg from '../assets/products-hero.png'
 import handleQuoteRequest from '../utils/text';
 import Logo from '../assets/cropped.png'
 import Team1 from '../assets/avatar/1.jpeg'

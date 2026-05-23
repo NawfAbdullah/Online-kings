@@ -7,6 +7,7 @@ import ProductModal from './ProductModal'
 function ProductCard({product,activeCategoryData}) {
     const [selectedType,setSelectedSubType] = useState(null)
     const [isModalOpen, setIsModalOpen] = useState(false)
+    const productImage = product.image || Placeholder
   return (
     <>
     <div 
@@ -20,7 +21,9 @@ function ProductCard({product,activeCategoryData}) {
                 Customizable
               </div>
             )}
-            <img className='w-full h-40 sm:h-50 lg:h-80 object-cover' src={Placeholder} alt="" />
+            <div className="w-full aspect-square overflow-hidden bg-slate-100">
+              <img className='w-full h-full object-cover' src={productImage} alt={product.name} />
+            </div>
             <div className="p-4 sm:p-6 flex flex-col h-full">
 
               <div>
