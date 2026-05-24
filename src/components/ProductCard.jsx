@@ -15,12 +15,12 @@ function ProductCard({product,activeCategoryData}) {
         onClick={() => setIsModalOpen(true)}
             >
             {/* Customizable Badge */}
-            {product.customizable && (
+            {/* {product.customizable && (
               <div className="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full flex items-center gap-1.5 text-xs font-bold shadow-lg z-10">
                 <Palette size={12} />
                 Customizable
               </div>
-            )}
+            )} */}
             <div className="w-full aspect-square overflow-hidden bg-slate-100">
               <img className='w-full h-full object-cover' src={productImage} alt={product.name} />
             </div>

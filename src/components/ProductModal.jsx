@@ -31,10 +31,8 @@ function ProductModal({ product, isOpen, onClose, icon: Icon, categoryLabel }) {
             
             {/* Product Image Section */}
             <div className="flex flex-col items-center justify-center">
-              <div className="w-full bg-slate-50 rounded-xl p-8 flex items-center justify-center mb-4 h-80">
-                <div className="text-slate-300">
-                  {Icon && <Icon size={80} />}
-                </div>
+              <div className="w-full bg-slate-50 rounded-xl flex items-center justify-center mb-4 h-80">
+                  <img className='w-full h-full object-cover rounded-xl' src={product.image} alt={product.name} />
               </div>
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-600 text-xs font-bold uppercase tracking-wider">
                 <Package size={12} />
