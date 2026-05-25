@@ -48,6 +48,11 @@ import arcylic_nameboards from "../assets/arcylic_nameboard.jpg"
 import acp from "../assets/products/acp.jpg"
 import ledboards from "../assets/LED BOARDS.jpg"
 import backlight_board from "../assets/backlight_board.jpg"
+import ironInsert from "../assets/ironinsertedstandies.png"
+import paperInsert from "../assets/paperInserts.png"
+import lollipops from "../assets/lollipopboards.png"
+import BookCover from '../assets/bookcover.png'
+import frontlight from '../assets/frontlight.png'
 
 const CATALOG_DATA = [
   {
@@ -90,7 +95,7 @@ const CATALOG_DATA = [
       { 
         name: 'Books', 
         description: 'Print your product catalogs, user manuals, and company portfolios for your offices.',
-        image: 'https://images.unsplash.com/photo-1507842217343-583f20270319?w=500&h=500&fit=crop'
+        image: BookCover
       },
       { 
         name: 'Bill Books', 
@@ -133,7 +138,7 @@ const CATALOG_DATA = [
       { 
         name: 'Paper Inserts', 
         description: 'Short ad handouts for newspaper inserts, as thanks coupons for customers, for festive offer announcements etc.',
-        image: 'https://images.unsplash.com/photo-1633356122544-f134324ef6cb?w=500&h=500&fit=crop'
+        image: paperInsert
       },
       { 
         name: 'Pamphlets', 
@@ -265,7 +270,7 @@ const CATALOG_DATA = [
       { 
         name: 'Lollipop Boards', 
         description: 'Want your brand to stand out in style? Try out our lollipop boards. Apt for store entrances, food trucks, mall outlets and street food diners.',
-        image: 'https://images.unsplash.com/photo-1604480598129-2917b1c43eb2?w=500&h=500&fit=crop'
+        image: lollipops
       }
     ]
   },
@@ -371,12 +376,12 @@ const CATALOG_DATA = [
       { 
         name: 'Front Light Boards', 
         description: 'Durable front lit boards with sharp prints and strong illumination for day-night visibility.',
-        image: 'https://images.unsplash.com/photo-1635630298304-f6fab60cf95e?w=500&h=500&fit=crop'
+        image: frontlight
       },
       { 
         name: 'Iron Fabricated Standees', 
         description: 'Fixed, weatherproof and sturdy standee made of iron and is apt for outdoor displays.',
-        image: 'https://images.unsplash.com/photo-1511814314285-93b26a2c8676?w=500&h=500&fit=crop'
+        image: ironInsert
       }
     ]
   }

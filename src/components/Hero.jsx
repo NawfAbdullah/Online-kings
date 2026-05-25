@@ -110,7 +110,7 @@ const Hero = () => {
               </div>
               <div>
                  <p className="text-xs text-slate-500 font-medium uppercase tracking-wider">Total Orders</p>
-                 <p className="font-heading font-bold text-2xl text-slate-900">1,240+</p>
+                 <p className="font-heading font-bold text-2xl text-slate-900">7500+</p>
               </div>
             </div>
 
