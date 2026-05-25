@@ -28,10 +28,10 @@ const Hero = () => {
               </span>
             </div>
 
-            <h1 className="font-heading text-5xl md:text-6xl lg:text-[4.5rem] font-extrabold text-slate-900 leading-[1.1] tracking-tight">
-              Print that <br/>
+            <h1 className="font-heading text-4xl md:text-6xl lg:text-[4rem] font-extrabold text-slate-900 leading-[1.1] tracking-tight">
+              Premium print <br/>
               <span className="relative whitespace-nowrap text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-teal-500">
-                demands attention.
+                your brand deserves.
                 <svg className="absolute -bottom-2 left-0 w-full h-3 text-green-200 -z-10" viewBox="0 0 100 10" preserveAspectRatio="none">
                   <path d="M0 5 Q 50 10 100 5" stroke="currentColor" strokeWidth="8" fill="none" />
                 </svg>
