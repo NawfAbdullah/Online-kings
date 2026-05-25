@@ -27,7 +27,7 @@ const About = () => {
                           <CheckCircle size={32} />
                       </div>
                       <h3 className="font-heading font-bold text-5xl text-white mb-2">
-                          <AnimatedCounter end={5000} duration={2500} suffix="+" />
+                          <AnimatedCounter end={7500} duration={2500} suffix="+" />
                       </h3>
                       <p className="text-slate-400 font-medium">Projects Completed</p>
                       <p className="text-xs text-slate-500 mt-2">Trusted by 1000+ businesses</p>
