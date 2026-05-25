@@ -1,5 +1,5 @@
 import { Award, Briefcase, Heart } from 'lucide-react';
-import founderImage from '../assets/transparent.png';
+import founderImage from '../assets/kursheed.jpeg';
 
 const Founder = () => {
   return (
@@ -27,7 +27,7 @@ const Founder = () => {
               <img
                 src={founderImage}
                 alt="Mr. Kursheed Hussain - Founder"
-                className="relative w-full h-[80%] rounded-2xl shadow-2xl object-cover border-4 border-green-500"
+                className="relative w-full h-[90%] rounded-2xl shadow-2xl object-cover border-4 border-green-500"
               />
             </div>
           </div>
