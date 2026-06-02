@@ -1,7 +1,8 @@
 import { ShoppingBag,  Printer, Layers, Image as ImageIcon, Flag, 
   Coffee, Briefcase, Lightbulb, ChevronRight 
 } from 'lucide-react';
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
+import emailjs from '@emailjs/browser';
 import ProductCard from './ProductCard';
 import handleQuoteRequest from '../utils/text';
 
@@ -389,8 +390,84 @@ const CATALOG_DATA = [
 
 const Catalog = () => {
   const [activeCategory, setActiveCategory] = useState(CATALOG_DATA[0].id);
+  const [isDownloadModalOpen, setIsDownloadModalOpen] = useState(false);
+  const [downloadForm, setDownloadForm] = useState({ name: '', email: '', phone: '', city: '', role: '', business: '' });
+  const [downloadError, setDownloadError] = useState('');
+  const [downloadSuccess, setDownloadSuccess] = useState(false);
   const categoryScrollRef = useRef(null);
   const activeCategoryData = CATALOG_DATA.find(cat => cat.id === activeCategory);
+
+  // Initialize emailJS
+  useEffect(() => {
+    emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
+  }, []);
+
+  const openDownloadModal = () => {
+    setDownloadError('');
+    setDownloadSuccess(false);
+    setDownloadForm({ name: '', email: '', phone: '', city: '', role: '', business: '' });
+    setIsDownloadModalOpen(true);
+  };
+
+  const closeDownloadModal = () => {
+    setIsDownloadModalOpen(false);
+  };
+
+  const handleDownloadFormChange = (field, value) => {
+    setDownloadForm((prev) => ({ ...prev, [field]: value }));
+  };
+
+  const handleDownloadSubmit = async (event) => {
+    event.preventDefault();
+    const { name, email, phone, city, role, business } = downloadForm;
+
+    if (!name.trim() || !email.trim() || !phone.trim() || !city.trim() || !role.trim() || !business.trim()) {
+      setDownloadError('Please fill in all fields.');
+      return;
+    }
+
+    try {
+      // Send email using emailJS
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        {
+          to_email: import.meta.env.VITE_RECIPIENT_EMAIL,
+          from_name: name,
+          from_email: email,
+          phone: phone,
+          city: city,
+          role: role,
+          business: business,
+          message: `New Lead :  ${name} requested catalog download`
+        }
+      );
+
+      // Always proceed to download regardless of response
+      setDownloadSuccess(true);
+      setDownloadError('');
+
+      // Trigger PDF download
+      setTimeout(() => {
+        const link = document.createElement('a');
+        link.href = '/catalog.pdf';
+        link.download = 'OnlineKings-Catalog.pdf';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        closeDownloadModal();
+      }, 500);
+    } catch (error) {
+      // Still download PDF even if submission fails
+      const link = document.createElement('a');
+      link.href = '/catalog.pdf';
+      link.download = 'OnlineKings-Catalog.pdf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      closeDownloadModal();
+    }
+  };
 
   return (
     <section id="catalog" className="py-20 bg-slate-50/50 border-t border-slate-200">
@@ -455,14 +532,109 @@ const Catalog = () => {
               <p className="text-sm sm:text-base text-slate-300 mb-6 sm:mb-8 max-w-lg mx-auto px-2">
                   We handle custom promotional products and sizes that aren't listed here. Get in touch with our design team.
               </p>
-              <button onClick={handleQuoteRequest} className="bg-green-500 hover:bg-green-600 text-white font-bold py-2.5 sm:py-3 px-6 sm:px-8 text-sm sm:text-base rounded-full transition-all">
-                  Request Custom Quote
-              </button>
+              <div className="flex flex-col sm:flex-row justify-center gap-4">
+                <button onClick={handleQuoteRequest} className="bg-green-500 hover:bg-green-600 text-white font-bold py-2.5 sm:py-3 px-6 sm:px-8 text-sm sm:text-base rounded-full transition-all">
+                    Request Custom Quote
+                </button>
+                <button onClick={openDownloadModal} className="bg-white hover:bg-slate-100 text-slate-900 border border-slate-200 font-bold py-2.5 sm:py-3 px-6 sm:px-8 text-sm sm:text-base rounded-full transition-all">
+                    Download Catalog
+                </button>
+              </div>
            </div>
            <div className="absolute top-0 right-0 w-64 h-64 bg-white opacity-5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
            <div className="absolute bottom-0 left-0 w-48 h-48 bg-green-500 opacity-10 rounded-full translate-y-1/2 -translate-x-1/2"></div>
         </div>
 
+        {isDownloadModalOpen && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/70">
+            <div className="w-full max-w-lg bg-white rounded-3xl shadow-2xl overflow-hidden">
+              <div className="flex items-start justify-between p-6 border-b border-slate-200">
+                <div>
+                  <h3 className="text-xl font-heading font-bold text-slate-900">Download our catalog</h3>
+                  <p className="text-sm text-slate-500 mt-1">Enter your details and we’ll send the catalog to you right away.</p>
+                </div>
+                <button onClick={closeDownloadModal} className="text-slate-400 hover:text-slate-600 transition-colors" aria-label="Close modal">
+                  ✕
+                </button>
+              </div>
+
+              <form onSubmit={handleDownloadSubmit} className="p-6 space-y-4">
+                <div>
+                  <label className="block text-sm font-medium text-slate-700 mb-2">Full name</label>
+                  <input
+                    type="text"
+                    value={downloadForm.name}
+                    onChange={(event) => handleDownloadFormChange('name', event.target.value)}
+                    className="w-full rounded-2xl border border-slate-200 px-4 py-3 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-green-500"
+                    placeholder="Enter your name"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-slate-700 mb-2">Email address</label>
+                  <input
+                    type="email"
+                    value={downloadForm.email}
+                    onChange={(event) => handleDownloadFormChange('email', event.target.value)}
+                    className="w-full rounded-2xl border border-slate-200 px-4 py-3 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-green-500"
+                    placeholder="Enter your email"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-slate-700 mb-2">Phone number</label>
+                  <input
+                    type="tel"
+                    value={downloadForm.phone}
+                    onChange={(event) => handleDownloadFormChange('phone', event.target.value)}
+                    className="w-full rounded-2xl border border-slate-200 px-4 py-3 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-green-500"
+                    placeholder="Enter your phone number"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-slate-700 mb-2">City</label>
+                  <input
+                    type="text"
+                    value={downloadForm.city}
+                    onChange={(event) => handleDownloadFormChange('city', event.target.value)}
+                    className="w-full rounded-2xl border border-slate-200 px-4 py-3 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-green-500"
+                    placeholder="Enter your city"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-slate-700 mb-2">Role</label>
+                  <input
+                    type="text"
+                    value={downloadForm.role}
+                    onChange={(event) => handleDownloadFormChange('role', event.target.value)}
+                    className="w-full rounded-2xl border border-slate-200 px-4 py-3 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-green-500"
+                    placeholder="Enter your role/designation"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-slate-700 mb-2">Business</label>
+                  <input
+                    type="text"
+                    value={downloadForm.business}
+                    onChange={(event) => handleDownloadFormChange('business', event.target.value)}
+                    className="w-full rounded-2xl border border-slate-200 px-4 py-3 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-green-500"
+                    placeholder="Enter your business name"
+                  />
+                </div>
+
+                {downloadError && <p className="text-sm text-red-600">{downloadError}</p>}
+                {downloadSuccess && <p className="text-sm text-green-600">Your details are ready and the catalog download should start shortly.</p>}
+
+                <div className="flex flex-col sm:flex-row gap-3 mt-2">
+                  <button type="submit" className="w-full inline-flex justify-center items-center bg-green-500 hover:bg-green-600 text-white font-bold rounded-full px-6 py-3 transition-all">
+                    Send details & download
+                  </button>
+                  <button type="button" onClick={closeDownloadModal} className="w-full inline-flex justify-center items-center bg-slate-100 hover:bg-slate-200 text-slate-900 font-bold rounded-full px-6 py-3 transition-all">
+                    Cancel
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );
