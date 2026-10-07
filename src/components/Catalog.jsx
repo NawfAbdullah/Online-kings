@@ -1,5 +1,5 @@
 import { ShoppingBag,  Printer, Layers, Image as ImageIcon, Flag, 
-  Coffee, Briefcase, Lightbulb, ChevronRight 
+  Shirt, Gift, Briefcase, Lightbulb, ChevronRight
 } from 'lucide-react';
 import { useState, useRef, useEffect } from "react";
 import emailjs from '@emailjs/browser';
@@ -7,53 +7,77 @@ import ProductCard from './ProductCard';
 import handleQuoteRequest from '../utils/text';
 
 // Import local product images
-import visitingCardImg from '../assets/products/visitingCard.jpg';
 import pamphletImg from '../assets/products/pamplet.jpeg';
 import brochureImg from '../assets/products/brochure.jpeg';
-import sunpackImg from '../assets/products/sunpack.jpeg';
-import promoCanopyImg from '../assets/products/promotionalcanopy.jpeg';
-import rollupStandeeImg from '../assets/products/rollupstandee.jpeg';
-import promoTableImg from '../assets/products/promotionaltable.jpeg';
-import umbrellaImg from '../assets/products/umbrella.jpeg';
-import promoFlagImg from '../assets/products/promotionalflag.jpeg';
-import roundBadgeImg from '../assets/products/roundbatch.jpeg';
-import letterheadimg from "../assets/letterhead.png"
-import envelopecover from "../assets/envelope_cover.png"
-import billbook from "../assets/billbook.png"
-import stickers from "../assets/Stickers.jpg"
-import certificate from "../assets/certificate.png"
-import voucherbook from "../assets/voucher book.jpg"
-import danglers from "../assets/DANGLERS.....jpg"
-import coupons from "../assets/coupons.jpg"
-import wallposters from "../assets/wall posters.jpg"
-import magazines from "../assets/MAGAZINES.jpg"
-import calendars from "../assets/wallcalendar.jpg"
-import flex from "../assets/FLEX.jpg"
-import vinylstickers from "../assets/vinylstickers.jpg"
-import foam_board from "../assets/foam_board.jpg"
-import gazebo from "../assets/GAZEBO.jpg"
-import umbrellatable from "../assets/PROMOTIONAL TABLE WITH UMBERLLA.jpg"
-import adjustable_backdrop from "../assets/adjustable_backdrop.jpg"
-import tshirt from "../assets/TSHIRT.jpg"
-import cap from "../assets/CAP.jpg"
-import mugs from "../assets/MUGS.jpg"
-import waterbottle from "../assets/WATERBOTTLE.jpg"
-import idcards from "../assets/ID CARDS.jpg"
-import lanyards from "../assets/LANYARDS.jpg"
-import diaries from "../assets/DIARIES.jpg" 
-import tabletop_calendars from "../assets/tabletop_calendar.jpg"      
-import rubberstamps from "../assets/RUBBER STAMP.jpg"
-import keychain from "../assets/keychain.jpg"
-import frames from "../assets/frames.jpg"
-import arcylic_nameboards from "../assets/arcylic_nameboard.jpg"
-import acp from "../assets/products/acp.jpg"
-import ledboards from "../assets/LED BOARDS.jpg"
-import backlight_board from "../assets/backlight_board.jpg"
-import ironInsert from "../assets/ironinsertedstandies.png"
-import paperInsert from "../assets/paperInserts.png"
-import lollipops from "../assets/lollipopboards.png"
-import BookCover from '../assets/bookcover.png'
-import frontlight from '../assets/frontlight.png'
+
+// Digital printing
+import visitingCardImg from '../assets/ok website images/digital printing/visiting_cards_online_kings_best_printing_company_in_chennai.jpg';
+import letterheadimg from '../assets/ok website images/digital printing/letterhead_online_kings_best_printing_company_in_chennai.jpg';
+import envelopecover from '../assets/ok website images/digital printing/envelope_covers_online_kings_best_printing_company_in_chennai.jpg';
+import BookCover from '../assets/ok website images/digital printing/books_best_printing_company_in_chennai.jpg';
+import billbook from '../assets/ok website images/digital printing/bill_books_online_kings_best_printing_company_in_chennai.jpg';
+import stickers from '../assets/ok website images/digital printing/stickers_online_kings_best_prinitng_company_in_chennai.jpg';
+import certificate from '../assets/ok website images/digital printing/certificate_online_kings_best_printing_company_in_chennai.jpg';
+import voucherbook from '../assets/ok website images/digital printing/voucher_books_online_kings_best_printing_company_in_chennai.jpg';
+import danglers from '../assets/ok website images/digital printing/danglers_online_kings_best_printing_company_in_chennai.jpg';
+import coupons from '../assets/ok website images/digital printing/coupons_online_kings_best_printing_company_in_chennai.jpg';
+
+// Offset printing
+import leaflets from '../assets/ok website images/offset printing/leaflets_online_kings_best_printing_company_in_chennai.jpg';
+import offsetPamphletImg from '../assets/ok website images/offset printing/pamphlets_online_kings_best_printing_company_in_chennai.jpg';
+import wallposters from '../assets/ok website images/offset printing/wall_posters_online_kings_best_printing_company_in_chennai.jpg';
+import magazines from '../assets/ok website images/offset printing/magazines_online_kings_best_printing_company_in_chennai.jpg';
+import calendars from '../assets/ok website images/offset printing/calendars_online_kings_best_printing_company_in_chennai.jpg';
+
+// Vinyl printing
+import flex from '../assets/ok website images/vinyl printing/flex_printing_best_printing_company_in_chennai.jpg';
+import vinylstickers from '../assets/ok website images/vinyl printing/vinyl_stickers_best_printing_company_in_Chennai.jpg';
+import foam_board from '../assets/ok website images/vinyl printing/foam_board_best_printing_company_in_chennai.jpg';
+import sunpackImg from '../assets/ok website images/vinyl printing/sunpack_ad_boards_best_printing_company_in_chennai.jpg';
+
+// Promotional products
+import promoCanopyImg from '../assets/ok website images/outdoor promotional products/canopy_best_printing_company_in_chennai.jpg';
+import gazebo from '../assets/ok website images/outdoor promotional products/customized_gazebo_best_printing_company_in_chennai.jpg';
+import rollupStandeeImg from '../assets/ok website images/outdoor promotional products/best_roll_up_standee_printing_company_in_chennai.jpg';
+import promoTableImg from '../assets/ok website images/outdoor promotional products/promotional_table_best_printing_company_in_chennai.jpg';
+import umbrellatable from '../assets/ok website images/outdoor promotional products/promo_umbrella_best_printing_company_in_chennai.jpg';
+import umbrellaImg from '../assets/ok website images/outdoor promotional products/promotional_umbrella_best_printing_company_in_chennai.jpg';
+import promoFlagImg from '../assets/ok website images/outdoor promotional products/promo_flag_best_printing_company_in_chennai.jpg';
+import adjustable_backdrop from '../assets/ok website images/outdoor promotional products/adjustable_backdrop_best_printing_company_in_chennai.jpg';
+import easelStand from '../assets/ok website images/outdoor promotional products/eesal_stand_best_printing_coimpany_in_chennai.jpg';
+import lollipops from '../assets/ok website images/outdoor promotional products/lollipop_boards_best_printing_company_in_chennai.jpg';
+
+// Corporate essentials
+import tshirt from '../assets/ok website images/corporate essentials/t_shirt_printing_best_printing_company_in_chennai.jpg';
+import cap from '../assets/ok website images/corporate essentials/cap_printing_best_printing_company_in_chennai.jpg';
+import mugs from '../assets/ok website images/corporate essentials/mug_printing_best_printing_company_in_chennai.jpg';
+import waterbottle from '../assets/ok website images/corporate essentials/waterbotles_corporate_gifts_best_printing_company_in_chennai.jpg';
+import corporateKeychain from '../assets/ok website images/corporate essentials/keychains_best_printing_company_in_chennai.jpg';
+import corporateBadgeImg from '../assets/ok website images/corporate essentials/round_badges_corporate_events_best_printing_company_in_chennai.jpg';
+
+// Customized gifts
+import giftWaterbottle from '../assets/ok website images/customized gifts/best_water_bottle_printing_company_in_chennai.jpg';
+import giftKeychain from '../assets/ok website images/customized gifts/keychains_best_printing_company_in_chennai.jpg';
+import giftMugs from '../assets/ok website images/customized gifts/mug_printing_best_printing_company_in_chennai.jpg';
+import frames from '../assets/ok website images/customized gifts/wedding_nikkah_frames_best_printing_company_in_chennai.jpg';
+
+// Office needs
+import officeVisitingCardImg from '../assets/ok website images/office needs/visiting_cards_online_kings_best_printing_company_in_chennai.jpg';
+import roundBadgeImg from '../assets/ok website images/office needs/best_badges_printing_company_in_chennai.jpg';
+import idcards from '../assets/ok website images/office needs/best_ID_card_printing_company_in_chennai.jpg';
+import lanyards from '../assets/ok website images/office needs/best_ID_rope_printing_company_in_chennai.jpg';
+import diaries from '../assets/ok website images/office needs/dairies_best_printing_company_in_chennai.jpg';
+import tabletop_calendars from '../assets/ok website images/office needs/table_top_calendars_best_printing_company_in_chennai.jpg';
+import rubberstamps from '../assets/ok website images/office needs/rubber_stamps_best_printing_company_in_chennai.jpg';
+import keychain from '../assets/ok website images/office needs/keychains_best_printing_company_in_chennai.jpg';
+
+// Signages
+import arcylic_nameboards from '../assets/ok website images/signages/acrylic_name_board_best_pritning_company_in_chennai.jpg';
+import acp from '../assets/ok website images/signages/ACP_letters_best_printing_company_in_chennai.jpg';
+import ledboards from '../assets/ok website images/signages/LED_boards_best_printing_company_in_chennai.jpg';
+import backlight_board from '../assets/ok website images/signages/backlight_boards_best_printing_company_in_chennai.jpg';
+import frontlight from '../assets/ok website images/signages/front_light_board_best_printing_company_in_chennai.jpg';
+import ironInsert from '../assets/ok website images/signages/iron_fabricated_standee_best_printing_company_in_chennai.jpg';
 
 const CATALOG_DATA = [
   {
@@ -137,16 +161,16 @@ const CATALOG_DATA = [
     icon: Layers,
     products: [
       { 
-        name: 'Paper Inserts', 
+        name: 'Leaflets',
         description: 'Short ad handouts for newspaper inserts, as thanks coupons for customers, for festive offer announcements etc.',
-        image: paperInsert
+        image: leaflets
       },
-      { 
-        name: 'Pamphlets', 
+      {
+        name: 'Pamphlets',
         description: 'Designed to educate your customers about your products and services. Art paper, glossy finish, double and single side prints.',
         variants: ['80 GSM', '100 GSM', '120 GSM', '130 GSM'],
         customizable: true,
-        image: pamphletImg
+        image: offsetPamphletImg
       },
       { 
         name: 'Brochures', 
@@ -266,7 +290,7 @@ const CATALOG_DATA = [
       { 
         name: 'Wooden Easel Stand', 
         description: 'Desirable portrait stands that makes your brand look elegant. Perfect for business events, outlet stores, stalls, promotions in malls, weddings etc.',
-        image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=500&h=500&fit=crop'
+        image: easelStand
       },
       { 
         name: 'Lollipop Boards', 
@@ -276,9 +300,9 @@ const CATALOG_DATA = [
     ]
   },
   {
-    id: 'sublimation',
-    label: 'Sublimation Printing',
-    icon: Coffee,
+    id: 'corporate',
+    label: 'Corporate Essentials',
+    icon: Shirt,
     products: [
       { 
         name: 'T-Shirts', 
@@ -299,6 +323,43 @@ const CATALOG_DATA = [
         name: 'Water Bottles', 
         description: 'Durable water bottles with custom prints desirable for office needs, gifts and promotions.',
         image: waterbottle
+      },
+      {
+        name: 'Keychains',
+        description: 'Small in size, big on impact-gift that keeps your clients view your brand daily.',
+        image: corporateKeychain
+      },
+      {
+        name: 'Round Badges',
+        description: 'Represent your brand wherever you go. Pin attached badges, magnetic metal badges and acrylic badges.',
+        image: corporateBadgeImg
+      }
+    ]
+  },
+  {
+    id: 'gifts',
+    label: 'Customized Gifts',
+    icon: Gift,
+    products: [
+      {
+        name: 'Water Bottles',
+        description: 'Durable water bottles with custom prints desirable for office needs, gifts and promotions.',
+        image: giftWaterbottle
+      },
+      {
+        name: 'Keychains',
+        description: 'Small in size, big on impact-gift that keeps your clients view your brand daily.',
+        image: giftKeychain
+      },
+      {
+        name: 'Mugs',
+        description: 'Ceramic custom printed mugs with bright printing - perfect for gifts and branding.',
+        image: giftMugs
+      },
+      {
+        name: 'Frames',
+        description: 'Quality frames for your certificates to be displayed on your office walls.',
+        image: frames
       }
     ]
   },
@@ -307,8 +368,14 @@ const CATALOG_DATA = [
     label: 'Office Needs',
     icon: Briefcase,
     products: [
-      { 
-        name: 'Round Badges', 
+      {
+        name: 'Visiting Cards',
+        description: '300 GSM art board visiting cards desirable for your business connections',
+        variants: ['Classic', 'Glossy', 'Matte', 'Textured'],
+        image: officeVisitingCardImg
+      },
+      {
+        name: 'Round Badges',
         description: 'Represent your brand wherever you go. Pin attached badges, magnetic metal badges and acrylic badges.',
         image: roundBadgeImg
       },
@@ -341,11 +408,6 @@ const CATALOG_DATA = [
         name: 'Keychains', 
         description: 'Small in size, big on impact-gift that keeps your clients view your brand daily.',
         image: keychain
-      },
-      { 
-        name: 'Frames', 
-        description: 'Quality frames for your certificates to be displayed on your office walls.',
-        image: frames
       }
     ]
   },

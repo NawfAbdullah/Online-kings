@@ -24,7 +24,7 @@ function ProductCard({product,activeCategoryData}) {
             <div className="w-full aspect-square overflow-hidden bg-slate-100">
               <img className='w-full h-full object-cover' src={productImage} alt={product.name} />
             </div>
-            <div className="p-4 sm:p-6 flex flex-col h-full">
+            <div className="p-4 sm:p-6 flex flex-col">
 
               <div>
                 {/* Card Icon Visual */}
@@ -62,7 +62,7 @@ function ProductCard({product,activeCategoryData}) {
               </div>
 
               {/* Action Footer */}
-              <div className="mt-auto pt-3 sm:pt-6 border-t border-slate-50 flex items-center justify-between" onClick={() =>{
+              <div className="mt-4 pt-3 sm:pt-4 border-t border-slate-50 flex items-center justify-between" onClick={() =>{
                  if(!selectedType){
                      handleQuoteRequest(product.name)
                 }else{
